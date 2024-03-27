@@ -1,7 +1,7 @@
 Note: Multiple columns listed in a () before [PK] in the same table indicate that they combine to make up the Primary Key
 
 Professors(NetId:VARCHAR(10) [PK], LastName:VARCHAR(30), FirstName:VARCHAR(30), Department:VARCHAR(10))
-GeneralCourse((CourseNum:INT, Name:VARCHAR(128), Department:VARCHAR(10)) [PK], CreditHours:INT, Description:VARCHAR(1024), PreReqs:VARCHAR(128))
+GeneralCourse((CourseNum:INT, Name:VARCHAR(128), Department:VARCHAR(10)) [PK], CreditHours:INT, Description:VARCHAR(1024), PreReqs:VARCHAR(128), GenEdAtrrib:VARCHAR(255))
 SectionAttributes((CRN:INT, Semester:VARCHAR(16), Year:INT) [PK], LastNameFirstIni:VARCHAR(30), Department:VARCHAR(10) [FK to GeneralCourse.Department], Name:VARCHAR(128) [FK to GeneralCourse.Name], CourseNum:INT [FK to GeneralCourse.CourseNum])
 UserFeedback(FeedbackId: VARCHAR(128) [PK], Email:VARCHAR(128) [FK to Users.Email], Year:INT [FK to SectionAttributes.Year], CRN:INT [FK to SectionAttributes.CRN], Semester:VARCHAR(16) [FK to SectionAttributes.Semester], Testimony:VARCHAR(16384), Rating:Decimal, Difficulty:Decimal, TimeCommit:Decimal, Time_stamp:TIMESTAMP)
 Users(Email:VARCHAR(128) [PK], PassHash:BINARY(16), LastName:VARCHAR(30), FirstName:VARCHAR(30))

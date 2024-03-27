@@ -21,6 +21,7 @@ CREATE TABLE GeneralCourse(
     CreditHours             INT,
     Description             VARCHAR(16384),
     PreReqs                 VARCHAR(1024),
+    GenEdAtrrib             VARCHAR(255),
     PRIMARY KEY (CourseNum, Name, Department)
 );
 
