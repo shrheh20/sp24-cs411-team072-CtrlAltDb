@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS SectionAttributes(
     Department              VARCHAR(10),
     Name                    VARCHAR(255),
     CourseNum               INT,
-    FOREIGN KEY (Department, Name, CourseNum) REFERENCES GeneralCourse(Department, Name, CourseNum) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (CourseNum, Name, Department) REFERENCES GeneralCourse(CourseNum, Name, Department) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (CRN, Semester, Year)
 );
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS GPAHistory(
     Instructor              VARCHAR(255),
     Sched_Type              VARCHAR(10),
     Avg_Grade               DECIMAL,
-    FOREIGN KEY (CourseNum, Department, CourseName) REFERENCES GeneralCourse(CourseNum, Department, Name) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (CourseNum, CourseName, Department) REFERENCES GeneralCourse(CourseNum, Name, Department) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (CRN, Semester, Year)
 );
 
@@ -76,5 +76,5 @@ CREATE TABLE IF NOT EXISTS UserFeedback(
     LastName                VARCHAR(255),
     FirstName               VARCHAR(255),
     FOREIGN KEY (Email) REFERENCES Users(Email) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (Year, CRN, Semester) REFERENCES SectionAttributes(Year, CRN, Semester) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (CRN, Semester, Year) REFERENCES SectionAttributes(CRN, Semester, Year) ON DELETE CASCADE ON UPDATE CASCADE
 );
