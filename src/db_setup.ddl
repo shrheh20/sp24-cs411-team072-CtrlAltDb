@@ -1,20 +1,20 @@
 # DDL for team072 database for CS 411 SP24
 
-CREATE TABLE Professors(
+CREATE TABLE IF NOT EXISTS Professors(
     NetId                   VARCHAR(255) PRIMARY KEY,
     LastName                VARCHAR(255),
     FirstName               VARCHAR(255),
     Department              VARCHAR(255)
 );
 
-CREATE TABLE Users(
+CREATE TABLE IF NOT EXISTS Users(
     Email                   VARCHAR(255) PRIMARY KEY,
     Password                VARCHAR(255),
     LastName                VARCHAR(255),
     FirstName               VARCHAR(255)
 );
 
-CREATE TABLE GeneralCourse(
+CREATE TABLE IF NOT EXISTS GeneralCourse(
     CourseNum               INT,
     Name                    VARCHAR(255),
     Department              VARCHAR(10),
@@ -25,7 +25,7 @@ CREATE TABLE GeneralCourse(
     PRIMARY KEY (CourseNum, Name, Department)
 );
 
-CREATE TABLE SectionAttributes(
+CREATE TABLE IF NOT EXISTS SectionAttributes(
     CRN                     INT,
     Semester                VARCHAR(16),
     Year                    INT,
@@ -37,7 +37,7 @@ CREATE TABLE SectionAttributes(
     PRIMARY KEY (CRN, Semester, Year)
 );
 
-CREATE TABLE GPAHistory(
+CREATE TABLE IF NOT EXISTS GPAHistory(
     CRN                     INT,
     Semester                VARCHAR(16),
     Year                    INT,
@@ -52,7 +52,7 @@ CREATE TABLE GPAHistory(
     PRIMARY KEY (CRN, Semester, Year)
 );
 
-CREATE TABLE Teaches(
+CREATE TABLE IF NOT EXISTS Teaches(
     CRN                     INT,
     Semester                VARCHAR(16),
     Year                    INT,
@@ -62,7 +62,7 @@ CREATE TABLE Teaches(
     PRIMARY KEY (CRN, Semester, Year, NetId)
 );
 
-CREATE TABLE UserFeedback(
+CREATE TABLE IF NOT EXISTS UserFeedback(
     FeedbackId              VARCHAR(255) PRIMARY KEY,
     Email                   VARCHAR(255),
     Year                    INT,
