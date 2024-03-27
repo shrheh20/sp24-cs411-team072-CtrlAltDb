@@ -1,9 +1,9 @@
 Note: Multiple columns listed in a () before [PK] in the same table indicate that they combine to make up the Primary Key
 
-Professors(NetId:VARCHAR(10) [PK], LastName:VARCHAR(30), FirstName:VARCHAR(30), Department:VARCHAR(10))
-GeneralCourse((CourseNum:INT, Name:VARCHAR(128), Department:VARCHAR(10)) [PK], CreditHours:INT, Description:VARCHAR(1024), PreReqs:VARCHAR(128), GenEdAtrrib:VARCHAR(255))
-SectionAttributes((CRN:INT, Semester:VARCHAR(16), Year:INT) [PK], LastNameFirstIni:VARCHAR(30), Department:VARCHAR(10) [FK to GeneralCourse.Department], Name:VARCHAR(128) [FK to GeneralCourse.Name], CourseNum:INT [FK to GeneralCourse.CourseNum])
-UserFeedback(FeedbackId: VARCHAR(128) [PK], Email:VARCHAR(128) [FK to Users.Email], Year:INT [FK to SectionAttributes.Year], CRN:INT [FK to SectionAttributes.CRN], Semester:VARCHAR(16) [FK to SectionAttributes.Semester], Testimony:VARCHAR(16384), Rating:Decimal, Difficulty:Decimal, TimeCommit:Decimal, Time_stamp:TIMESTAMP)
-Users(Email:VARCHAR(128) [PK], PassHash:BINARY(16), LastName:VARCHAR(30), FirstName:VARCHAR(30))
-GPAHistory((CRN:INT, Semester:VARCHAR(16), Year:INT) [PK], A+:INT, A:INT, A-:INT, B+:INT, B:INT, B-:INT, C+:INT, C:INT, C-:INT, D+:INT, D:INT, D-:INT, F:INT, CourseNum:INT [FK to GeneralCourse.CourseNum], Department:VARCHAR(10) [FK to GeneralCourse.Department], CourseName:VARCHAR(128) [FK to GeneralCourse.Name], Instructor:VARCHAR(30), Sched_Type:VARCHAR(10), Avg_Grade:Decimal)
-Teaches: (CRN:INT [FK to SectionAttributes.CRN], Semester:VARCHAR(16) [FK to SectionAttributes.Semester], Year:INT [FK to SectionAttributes.Year], NetId:VARCHAR(128) [FK to Professors.NetId]) [PK]
+Professors(NetId:VARCHAR(255) [PK], LastName:VARCHAR(255), FirstName:VARCHAR(255), Department:VARCHAR(255))
+GeneralCourse((CourseNum:INT, Name:VARCHAR(255), Department:VARCHAR(10)) [PK], CreditHours:INT, Description:VARCHAR(16384), PreReqs:VARCHAR(1024), GenEdAtrrib:VARCHAR(255))
+SectionAttributes((CRN:INT, Semester:VARCHAR(16), Year:INT) [PK], LastNameFirstIni:VARCHAR(255), Department:VARCHAR(10) [FK to GeneralCourse.Department], Name:VARCHAR(255) [FK to GeneralCourse.Name], CourseNum:INT [FK to GeneralCourse.CourseNum])
+UserFeedback(FeedbackId: VARCHAR(255) [PK], Email:VARCHAR(255) [FK to Users.Email], Year:INT [FK to SectionAttributes.Year], CRN:INT [FK to SectionAttributes.CRN], Semester:VARCHAR(16) [FK to SectionAttributes.Semester], Testimony:VARCHAR(16384), Rating:Decimal, Difficulty:Decimal, TimeCommit:Decimal, Time_stamp:TIMESTAMP)
+Users(Email:VARCHAR(255) [PK], Password:VARCHAR(255), LastName:VARCHAR(255), FirstName:VARCHAR(255))
+GPAHistory((CRN:INT, Semester:VARCHAR(16), Year:INT) [PK], A_plus:INT, A_stan:INT, A_minus:INT, B_plus:INT, B_stan:INT, B_minus:INT, C_plus:INT, C_stan:INT, C_minus:INT, D_plus:INT, D_stan:INT, D_minus:INT, F_stan:INT, CourseNum:INT [FK to GeneralCourse.CourseNum], Department:VARCHAR(10) [FK to GeneralCourse.Department], CourseName:VARCHAR(255) [FK to GeneralCourse.Name], Instructor:VARCHAR(255), Sched_Type:VARCHAR(10), Avg_Grade:Decimal)
+Teaches: (CRN:INT [FK to SectionAttributes.CRN], Semester:VARCHAR(16) [FK to SectionAttributes.Semester], Year:INT [FK to SectionAttributes.Year], NetId:VARCHAR(255) [FK to Professors.NetId]) [PK]
