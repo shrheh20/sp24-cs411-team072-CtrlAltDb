@@ -1,30 +1,31 @@
 # DDL for team072 database for CS 411 SP24
 
-CREATE TABLE Professors(
+CREATE TABLE IF NOT EXISTS Professors(
     NetId                   VARCHAR(255) PRIMARY KEY,
     LastName                VARCHAR(255),
     FirstName               VARCHAR(255),
     Department              VARCHAR(255)
 );
 
-CREATE TABLE Users(
+CREATE TABLE IF NOT EXISTS Users(
     Email                   VARCHAR(255) PRIMARY KEY,
     Password                VARCHAR(255),
     LastName                VARCHAR(255),
     FirstName               VARCHAR(255)
 );
 
-CREATE TABLE GeneralCourse(
+CREATE TABLE IF NOT EXISTS GeneralCourse(
     CourseNum               INT,
     Name                    VARCHAR(255),
     Department              VARCHAR(10),
     CreditHours             INT,
     Description             VARCHAR(16384),
     PreReqs                 VARCHAR(1024),
+    GenEdAtrrib             VARCHAR(255),
     PRIMARY KEY (CourseNum, Name, Department)
 );
 
-CREATE TABLE SectionAttributes(
+CREATE TABLE IF NOT EXISTS SectionAttributes(
     CRN                     INT,
     Semester                VARCHAR(16),
     Year                    INT,
@@ -32,26 +33,38 @@ CREATE TABLE SectionAttributes(
     Department              VARCHAR(10),
     Name                    VARCHAR(255),
     CourseNum               INT,
-    FOREIGN KEY (Department, Name, CourseNum) REFERENCES GeneralCourse(Department, Name, CourseNum) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (CourseNum, Name, Department) REFERENCES GeneralCourse(CourseNum, Name, Department) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (CRN, Semester, Year)
 );
 
-CREATE TABLE GPAHistory(
+CREATE TABLE IF NOT EXISTS GPAHistory(
     CRN                     INT,
     Semester                VARCHAR(16),
     Year                    INT,
-    A+ INT, A INT, A- INT, B+ INT, B INT, B- INT, C+ INT, C INT, C- INT, D+ INT, D INT, D- INT, F INT,
+    A_plus                  INT,
+    A_stan                  INT,
+    A_minus                 INT,
+    B_plus                  INT,
+    B_stan                  INT,
+    B_minus                 INT,
+    C_plus                  INT,
+    C_stan                  INT,
+    C_minus                 INT,
+    D_plus                  INT,
+    D_stan                  INT,
+    D_minus                 INT,
+    F_stan                  INT,
     CourseNum               INT,
     Department              VARCHAR(10),
     CourseName              VARCHAR(255),
     Instructor              VARCHAR(255),
     Sched_Type              VARCHAR(10),
     Avg_Grade               DECIMAL,
-    FOREIGN KEY (CourseNum, Department, CourseName) REFERENCES GeneralCourse(CourseNum, Department, Name) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (CourseNum, CourseName, Department) REFERENCES GeneralCourse(CourseNum, Name, Department) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (CRN, Semester, Year)
 );
 
-CREATE TABLE Teaches(
+CREATE TABLE IF NOT EXISTS Teaches(
     CRN                     INT,
     Semester                VARCHAR(16),
     Year                    INT,
@@ -61,7 +74,7 @@ CREATE TABLE Teaches(
     PRIMARY KEY (CRN, Semester, Year, NetId)
 );
 
-CREATE TABLE UserFeedback(
+CREATE TABLE IF NOT EXISTS UserFeedback(
     FeedbackId              VARCHAR(255) PRIMARY KEY,
     Email                   VARCHAR(255),
     Year                    INT,
@@ -72,8 +85,6 @@ CREATE TABLE UserFeedback(
     Difficulty              DECIMAL,
     TimeCommit              DECIMAL,
     Time_stamp              TIMESTAMP, 
-    LastName                VARCHAR(255),
-    FirstName               VARCHAR(255),
     FOREIGN KEY (Email) REFERENCES Users(Email) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (Year, CRN, Semester) REFERENCES SectionAttributes(Year, CRN, Semester) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (CRN, Semester, Year) REFERENCES SectionAttributes(CRN, Semester, Year) ON DELETE CASCADE ON UPDATE CASCADE
 );
