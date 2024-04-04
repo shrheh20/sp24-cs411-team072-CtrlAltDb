@@ -5,137 +5,197 @@ import json
 import string
 import xml.etree.ElementTree as ET
 import csv
+import threading
+import queue
+import time
 
 # Base URL for course data
 # base_url = "https://courses.illinois.edu/cisapp/explorer/schedule/2023/spring/"
 
-# Parse the input XML data
-tree = ET.parse('data_parsing/XML_docs/spring_2024.xml')
-root = tree.getroot()
+csv_writer_lock = threading.Lock()
 
-# Create a list to store departments
-all_departments = []
-
-# Extract course information
-all_departments = root.find("subjects")
-
-# year_semester = year, semester
-# dept_info_list = abbreviation, deptname
-# course_info_list = courseNum, courseName, creditHours, description, genEdAttr
-# section_info_list = crn, sectionName, sectionType, instructors
-
-# general course = course_info_list + dept_info_list
-# section attributes = section_info_list + dept_info_list + year_semester
-
-year_semester = []
-year_semester.append(root.find("parents").find("calendarYear").text)
-year_semester.append(root.find("label").text)
-
-general_course = open('data_parsing/general_course.csv', 'w', newline='')
-section_attributes = open('data_parsing/section_attributes.csv', 'w', newline='')
+gen_cour_q = queue.Queue()
+sect_q = queue.Queue()
 
 
-writer_general = csv.writer(general_course)
-writer_section = csv.writer(section_attributes)
+def create_course_csvs(dept_num_to_start_at):
 
+    # Parse the input XML data
+    tree = ET.parse('data_parsing/XML_docs/fall_2023.xml')
+    root = tree.getroot()
 
-for dept in all_departments.findall("subject"):
+    # Create a list to store departments
+    all_departments = []
+
+    # Extract course information
+    all_departments = root.find("subjects")
+
+    # year_semester = year, semester
+    # dept_info_list = abbreviation, deptname
+    # course_info_list = courseNum, courseName, creditHours, description, genEdAttr
+    # section_info_list = courseNum, crn, sectionName, sectionType, instructors
+
+    # general course = course_info_list + dept_info_list
+    # section attributes = section_info_list + dept_info_list + year_semester
+
+    
+
+    year_semester = []
+    year_semester.append(root.find("parents").find("calendarYear").text)
+    year_semester.append(root.find("label").text)
+
     """
-    dept_info = {}
-    dept_info["abbreviation"] = dept.get("id")
-    dept_info["href"] = dept.get("href")
-    dept_info["name"] = dept.text
+    general_course = open('data_parsing/general_course_sp24.csv', 'w', newline='')
+    section_attributes = open('data_parsing/section_attributes_sp24.csv', 'w', newline='')
+
+
+    writer_general = csv.writer(general_course)
+    writer_section = csv.writer(section_attributes)
     """
-    dept_info = []
-    dept_info.append(dept.get("id"))
-    dept_info.append(dept.text)
-    # Send an HTTP GET request to the dept link
-    response = requests.get(dept.get("href"))
 
-    # Check if the request was successful
-    if response.status_code == 200:
-        dept_root = ET.fromstring(response.text)
+    depts = 0
 
-        # Extract course information
-        courses = dept_root.find("courses")
 
-        for course in courses.findall("course"):
-            """
-            course_info = {}
-            course_info["id"] = course.get("id")
-            course_info["href"] = course.get("href")
-            course_info["name"] = course.text
-            """
-            course_info = []
-            course_info.append(course.get("id"))
-            course_info.append(course.text)
+    for dept in all_departments.findall("subject"):
+        if (depts < dept_num_to_start_at or depts > dept_num_to_start_at + 9):
+            depts+= 1
+            continue
+        depts+= 1
 
-            # not sure if this needs to be a separate response var or not
-            response = requests.get(course.get("href"))
+        dept_info = []
+        dept_info.append(dept.get("id"))
+        dept_info.append(dept.text)
+        # Send an HTTP GET request to the dept link
+        response = requests.get(dept.get("href"))
 
-            if response.status_code == 200:
-                course_root = ET.fromstring(response.text)
+        # Check if the request was successful
+        if response.status_code == 200:
+            dept_root = ET.fromstring(response.text)
 
-                #course_info["creditHours"] = course.find("creditHours").text
-                #course_info["description"] = course.find("description").text
-                course_info.append(course_root.find("creditHours").text)
-                course_info.append(course_root.find("description").text)
-                try:
-                    # not all courses have 'sectionDegreeAttributes'
-                    #course_info["gen_ed_attr"] = course.find("sectionDegreeAttributes").text
-                    course_info.append(course_root.find("sectionDegreeAttributes").text)
-                except:
-                    #course_info["gen_ed_attr"] = ""
-                    course_info.append("")
+            # Extract course information
+            courses = dept_root.find("courses")
 
-                # make general course csv line here
-                writer_general.writerow(course_info + dept_info)
-                
-                sections = course_root.find("sections")
+            for course in courses.findall("course"):
 
-                for section in sections.findall("section"):
-                    """
-                    section_info = {}
-                    section_info["crn"] = section.get("id")
-                    section_info["section_name"] = section.text
-                    """
-                    section_info = []
-                    section_info.append(section.get("id"))
-                    section_info.append(section.text)
+                course_info = []
+                print(dept.get("id"), course.get("id"), course.text)
+                course_info.append(course.get("id"))
+                course_info.append(course.text)
 
-                    response = requests.get(section.get("href"))
+                # not sure if this needs to be a separate response var or not
+                response = requests.get(course.get("href"))
 
-                    if response.status_code == 200:
-                        section_root = ET.fromstring(response.text)
+                if response.status_code == 200:
+                    course_root = ET.fromstring(response.text)
 
-                        meetings = section_root.find("meetings")
+                    #course_info["creditHours"] = course.find("creditHours").text
+                    #course_info["description"] = course.find("description").text
+                    course_info.append(course_root.find("creditHours").text)
+                    course_info.append(course_root.find("description").text)
+                    try:
+                        # not all courses have 'sectionDegreeAttributes'
+                        #course_info["gen_ed_attr"] = course.find("sectionDegreeAttributes").text
+                        course_info.append(course_root.find("sectionDegreeAttributes").text)
+                    except:
+                        #course_info["gen_ed_attr"] = ""
+                        course_info.append("")
 
-                        for meeting in meetings.findall("meeting"):
-                            #section_info["type"] = meeting.find("type").text
-                            section_info.append(meeting.find("type").text)
+                    # make general course csv line here
+                    # writer_general.writerow(course_info + dept_info)
+                    gen_cour_q.put(course_info + dept_info)
+                    
+                    sections = course_root.find("sections")
 
-                            instructors = meeting.find("instructors")
-                            
-                            instructors_string = ""
-                            for instructor in instructors.findall("instructor"):
-                                instructors_string += (instructor.text + ";")
-                            
-                            #section_info["instructors"] = instructors_string
-                            section_info.append(instructors_string)
+                    for section in sections.findall("section"):
 
-                            # make section CSV row
-                            writer_section.writerow(section_info + dept_info + year_semester)
+                        section_info = []
+                        section_info.append(course.get("id"))
+                        section_info.append(section.get("id"))
+                        section_info.append(section.text)
 
-                    else: 
-                        print(f"Failed to retrieve data for {section.get("href")}, status code: {response.status_code}")
+                        response = requests.get(section.get("href"))
 
-            else:
-                print(f"Failed to retrieve data for {course.get("href")}, status code: {response.status_code}")
-    else:
-        print(f"Failed to retrieve data for {dept.get("href")}, status code: {response.status_code}")
+                        if response.status_code == 200:
+                            section_root = ET.fromstring(response.text)
 
-# Save all course data to a single JSON file
-# with open("all_courses.json", "w") as json_file:
-   # json.dump(all_courses, json_file, indent=2)
+                            meetings = section_root.find("meetings")
 
-print("Saved all course data to all_courses.json")
+                            for meeting in meetings.findall("meeting"):
+                                #section_info["type"] = meeting.find("type").text
+                                section_info.append(meeting.find("type").text)
+
+                                instructors = meeting.find("instructors")
+                                
+                                instructors_string = ""
+                                for instructor in instructors.findall("instructor"):
+                                    instructors_string += (instructor.text + ";")
+                                
+                                #section_info["instructors"] = instructors_string
+                                section_info.append(instructors_string)
+
+                                # make section CSV row
+                                # writer_section.writerow(section_info + dept_info + year_semester)
+                                sect_q.put(section_info + dept_info + year_semester)
+
+                                # csv_writer_lock.acquire()
+                                # general_course.flush()
+                                # section_attributes.flush()
+                                # csv_writer_lock.release()
+
+                        else: 
+                            print(f"Failed to retrieve data for {section.get("href")}, status code: {response.status_code}")
+
+                else:
+                    print(f"Failed to retrieve data for {course.get("href")}, status code: {response.status_code}")
+        else:
+            print(f"Failed to retrieve data for {dept.get("href")}, status code: {response.status_code}")
+
+    # Save all course data to a single JSON file
+    # with open("all_courses.json", "w") as json_file:
+    # json.dump(all_courses, json_file, indent=2)
+
+    # print("Saved all course data to all_courses.json")
+
+def handle_queue():
+    general_course = open('data_parsing/general_course_fa23.csv', 'w', newline='')
+    section_attributes = open('data_parsing/section_attributes_fa23.csv', 'w', newline='')
+
+    writer_general = csv.writer(general_course)
+    writer_section = csv.writer(section_attributes)
+
+    while(True):
+        try:
+            writer_section.writerow(sect_q.get())
+            section_attributes.flush()
+
+            writer_general.writerow(gen_cour_q.get())
+            general_course.flush()
+
+        except:
+            continue
+
+
+def make_threads():
+    threads = []
+    for i in range(20):  # Creating 3 threads as an example
+        # thread_name = f"Thread-{i+1}"
+        thread = threading.Thread(target=create_course_csvs, args=(i * 10,))
+        threads.append(thread)
+
+    thread = threading.Thread(target=handle_queue)
+    threads.append(thread)
+
+    # Start threads
+    for thread in threads:
+        thread.start()
+        time.sleep(1)
+        
+    
+
+    # Wait for all threads to complete
+    for thread in threads:
+        thread.join()
+
+
+if __name__ == "__main__":
+    make_threads()
