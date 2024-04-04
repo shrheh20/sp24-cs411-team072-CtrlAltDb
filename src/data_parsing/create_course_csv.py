@@ -21,7 +21,7 @@ sect_q = queue.Queue()
 def create_course_csvs(dept_num_to_start_at):
 
     # Parse the input XML data
-    tree = ET.parse('data_parsing/XML_docs/fall_2023.xml')
+    tree = ET.parse('data_parsing/XML_docs/spring_2024.xml')
     root = tree.getroot()
 
     # Create a list to store departments
@@ -156,23 +156,31 @@ def create_course_csvs(dept_num_to_start_at):
 
     # print("Saved all course data to all_courses.json")
 
-def handle_queue():
-    general_course = open('data_parsing/general_course_fa23.csv', 'w', newline='')
-    section_attributes = open('data_parsing/section_attributes_fa23.csv', 'w', newline='')
-
+def handle_gen_queue():
+    general_course = open('data_parsing/general_course_sp24.csv', 'w', newline='')
     writer_general = csv.writer(general_course)
-    writer_section = csv.writer(section_attributes)
 
     while(True):
         try:
-            writer_section.writerow(sect_q.get())
-            section_attributes.flush()
-
-            writer_general.writerow(gen_cour_q.get())
+            writer_general.writerow(gen_cour_q.get(timeout=10))
             general_course.flush()
-
+        except queue.Empty:
+            break
         except:
             continue
+
+def handle_section_queue():
+    section_attributes = open('data_parsing/section_attributes_sp24.csv', 'w', newline='')
+    writer_section = csv.writer(section_attributes)
+    while (True):
+        try:
+            writer_section.writerow(sect_q.get(timeout=10))
+            section_attributes.flush()
+        except queue.Empty:
+            break
+        except:
+            continue
+
 
 
 def make_threads():
@@ -182,7 +190,9 @@ def make_threads():
         thread = threading.Thread(target=create_course_csvs, args=(i * 10,))
         threads.append(thread)
 
-    thread = threading.Thread(target=handle_queue)
+    thread = threading.Thread(target=handle_gen_queue)
+    threads.append(thread)
+    thread = threading.Thread(target=handle_section_queue)
     threads.append(thread)
 
     # Start threads
@@ -190,8 +200,6 @@ def make_threads():
         thread.start()
         time.sleep(1)
         
-    
-
     # Wait for all threads to complete
     for thread in threads:
         thread.join()
