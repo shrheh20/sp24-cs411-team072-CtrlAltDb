@@ -1,4 +1,4 @@
-CRN,Semester,Year,A_plus,A_stan,A_minus,B_pluis,B_stan,B_minus,C_plus,C_stan,C_minus,D_plus,D_stan,D_minus,F_stan,CourseNum,DepartmentCode,CourseName,Instructor,Sched_Type,Avg_Grade
+CRN,Semester,Year,A_plus,A_stan,A_minus,B_plus,B_stan,B_minus,C_plus,C_stan,C_minus,D_plus,D_stan,D_minus,F_stan,CourseNum,DepartmentCode,CourseName,Instructor,Sched_Type,Avg_Grade
 69781,Spring,2019,2,13,4,3,3,2,0,3,1,0,0,0,2,100,AAS,Intro Asian American Studies,"Espiritu, Augusto F",LCD,3.23
 30107,Spring,2019,1,5,9,1,3,1,0,0,1,0,0,0,1,100,AAS,Intro Asian American Studies,"Thomas, Merin A",DIS,3.35
 41729,Spring,2019,0,7,9,3,2,3,0,0,0,0,0,0,2,100,AAS,Intro Asian American Studies,"Thomas, Merin A",DIS,3.27

@@ -1,4 +1,4 @@
-Subject,Course,CRN,Course Title,Sched Type,A+,A,A-,B+,B,B-,C+,C,C-,D+,D,D-,F,Average Grade,Primary Instructor,Semester,Year
+DepartmentCode,CourseNum,CRN,CourseName,Sched_Type,A_plus,A_stan,A_minus,B_plus,B_stan,B_minus,C_plus,C_stan,C_minus,D_plus,D_stan,D_minus,F_stan,Avg_Grade,Instructor,Semester,Year
 AAS,100,41758,Intro Asian American Studies,DIS,20,6,1,4,1,0,0,0,0,0,0,0,0,3.87,"Boonsripaisal, Simon",Fall,2019
 AAS,100,47100,Intro Asian American Studies,DIS,16,10,2,2,1,0,0,0,0,0,0,0,0,3.9,"Uhall, Michael B",Fall,2019
 AAS,100,47102,Intro Asian American Studies,DIS,5,13,2,2,3,2,0,1,0,0,0,0,3,3.3,"Kang, Yoonjung",Fall,2019

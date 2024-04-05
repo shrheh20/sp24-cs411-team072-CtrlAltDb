@@ -4,7 +4,8 @@ CREATE TABLE IF NOT EXISTS Professors(
     NetId                   VARCHAR(255) PRIMARY KEY,
     LastName                VARCHAR(255),
     FirstName               VARCHAR(255),
-    Department              VARCHAR(255)
+    LastNameFirstIni        VARCHAR(255),
+    DepartmentCode          VARCHAR(10)
 );
 
 CREATE TABLE IF NOT EXISTS Users(
@@ -40,9 +41,11 @@ CREATE TABLE IF NOT EXISTS SectionAttributes(
 );
 
 CREATE TABLE IF NOT EXISTS GPAHistory(
+    DepartmentCode          VARCHAR(10),
+    CourseNum               INT,
     CRN                     INT,
-    Semester                VARCHAR(16),
-    Year                    INT,
+    CourseName              VARCHAR(255),
+    Sched_Type              VARCHAR(10),
     A_plus                  INT,
     A_stan                  INT,
     A_minus                 INT,
@@ -56,12 +59,10 @@ CREATE TABLE IF NOT EXISTS GPAHistory(
     D_stan                  INT,
     D_minus                 INT,
     F_stan                  INT,
-    CourseNum               INT,
-    DepartmentCode          VARCHAR(10),
-    CourseName              VARCHAR(255),
+    Avg_Grade               DECIMAL(10,2),
     Instructor              VARCHAR(255),
-    Sched_Type              VARCHAR(10),
-    Avg_Grade               DECIMAL,
+    Semester                VARCHAR(16),
+    Year                    INT,
     FOREIGN KEY (CourseNum, DepartmentCode) REFERENCES GeneralCourse(CourseNum, DepartmentCode) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (CRN, Semester, Year)
 );
