@@ -6,16 +6,21 @@
     a department. That means there could be some misqueues, but this should be very unlikely.
     Once it finds the match, it inserts a new entry into Teaches, allowing us to link the
     courses taught by a professor.
+
+    Great resources on being able to process and split strings:
+    https://www.sql-easy.com/learn/how-to-extract-a-substring-from-a-string-in-postgresql-mysql/
+    https://www.w3schools.com/mysql/func_mysql_instr.asp
+
 */
 CREATE PROCEDURE populate_teaches()
     BEGIN
-        DECLARE done int default 0;
+        DECLARE done INT default 0;
         DECLARE temp_CRN VARCHAR(255);
         DECLARE temp_Semester VARCHAR(16);
         DECLARE temp_Year INT;
         DECLARE temp_Professors VARCHAR(1024);
         DECLARE temp_NetId VARCHAR(255);
-        DECLARE delimiter_position INT;
+        DECLARE semicolon_pos INT;
         DECLARE temp_LastNameFirstIni VARCHAR(255);
         DECLARE temp_DepartmentCode VARCHAR(10);
         DECLARE num_of_rows_found INT default 0;
@@ -27,11 +32,11 @@ CREATE PROCEDURE populate_teaches()
         REPEAT
             FETCH section_cur INTO temp_CRN, temp_Semester, temp_Year, temp_Professors, temp_DepartmentCode;
             WHILE LENGTH(temp_Professors) > 0 DO
-                SET delimiter_position = INSTR(temp_Professors, ';');
+                SET semicolon_pos = INSTR(temp_Professors, ';');
 
-                IF delimiter_position > 0 THEN
-                    SET temp_LastNameFirstIni = SUBSTRING(temp_Professors, 1, delimiter_position - 1);
-                    SET temp_Professors = SUBSTRING(temp_Professors, delimiter_position + 1);
+                IF semicolon_pos > 0 THEN
+                    SET temp_LastNameFirstIni = SUBSTRING(temp_Professors, 1, semicolon_pos - 1);
+                    SET temp_Professors = SUBSTRING(temp_Professors, semicolon_pos + 1);
                 ELSE
                     SET temp_LastNameFirstIni = temp_Professors;
                     SET temp_Professors = '';
