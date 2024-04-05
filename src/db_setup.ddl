@@ -8,6 +8,11 @@ CREATE TABLE IF NOT EXISTS Professors(
     DepartmentCode          VARCHAR(10)
 );
 
+CREATE TABLE IF NOT EXISTS Departments(
+    DepartmentCode          VARCHAR(10) PRIMARY KEY,
+    Department              VARCHAR(255)
+);
+
 CREATE TABLE IF NOT EXISTS Users(
     Email                   VARCHAR(255) PRIMARY KEY,
     Password                VARCHAR(255),
