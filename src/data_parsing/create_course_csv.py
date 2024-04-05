@@ -21,7 +21,7 @@ sect_q = queue.Queue()
 def create_course_csvs(dept_num_to_start_at):
 
     # Parse the input XML data
-    tree = ET.parse('data_parsing/XML_docs/spring_2024.xml')
+    tree = ET.parse('data_parsing/XML_docs/fall_2023.xml')
     root = tree.getroot()
 
     # Create a list to store departments
@@ -170,7 +170,7 @@ def create_course_csvs(dept_num_to_start_at):
     # print("Saved all course data to all_courses.json")
 
 def handle_gen_queue():
-    general_course = open('data_parsing/general_course_sp24.csv', 'w', newline='')
+    general_course = open('data_parsing/general_course_fa23.csv', 'w', newline='')
     writer_general = csv.writer(general_course)
 
     while(True):
@@ -183,7 +183,7 @@ def handle_gen_queue():
             continue
 
 def handle_section_queue():
-    section_attributes = open('data_parsing/section_attributes_sp24.csv', 'w', newline='')
+    section_attributes = open('data_parsing/section_attributes_fa23.csv', 'w', newline='')
     writer_section = csv.writer(section_attributes)
     while (True):
         try:
