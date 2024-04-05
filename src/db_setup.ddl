@@ -16,24 +16,26 @@ CREATE TABLE IF NOT EXISTS Users(
 
 CREATE TABLE IF NOT EXISTS GeneralCourse(
     CourseNum               INT,
-    Name                    VARCHAR(255),
-    Department              VARCHAR(10),
-    CreditHours             INT,
+    CourseName              VARCHAR(255),
+    CreditHours             VARCHAR(255),
     Description             VARCHAR(16384),
-    PreReqs                 VARCHAR(1024),
     GenEdAtrrib             VARCHAR(255),
-    PRIMARY KEY (CourseNum, Name, Department)
+    DepartmentCode          VARCHAR(10),
+    Department              VARCHAR(255),
+    PRIMARY KEY (CourseNum, DepartmentCode)
 );
 
 CREATE TABLE IF NOT EXISTS SectionAttributes(
-    CRN                     INT,
-    Semester                VARCHAR(16),
-    Year                    INT,
-    LastNameFirstIni        VARCHAR(255),
-    Department              VARCHAR(10),
-    Name                    VARCHAR(255),
     CourseNum               INT,
-    FOREIGN KEY (CourseNum, Name, Department) REFERENCES GeneralCourse(CourseNum, Name, Department) ON DELETE CASCADE ON UPDATE CASCADE,
+    CRN                     INT,
+    Section                 VARCHAR(10),
+    SectionType             VARCHAR(255),
+    Professors              VARCHAR(1024),
+    DepartmentCode          VARCHAR(10),
+    Department              VARCHAR(255),
+    Year                    INT,
+    Semester                VARCHAR(16),
+    FOREIGN KEY (CourseNum, DepartmentCode) REFERENCES GeneralCourse(CourseNum, DepartmentCode) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (CRN, Semester, Year)
 );
 
@@ -55,12 +57,12 @@ CREATE TABLE IF NOT EXISTS GPAHistory(
     D_minus                 INT,
     F_stan                  INT,
     CourseNum               INT,
-    Department              VARCHAR(10),
+    DepartmentCode          VARCHAR(10),
     CourseName              VARCHAR(255),
     Instructor              VARCHAR(255),
     Sched_Type              VARCHAR(10),
     Avg_Grade               DECIMAL,
-    FOREIGN KEY (CourseNum, CourseName, Department) REFERENCES GeneralCourse(CourseNum, Name, Department) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (CourseNum, DepartmentCode) REFERENCES GeneralCourse(CourseNum, DepartmentCode) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (CRN, Semester, Year)
 );
 

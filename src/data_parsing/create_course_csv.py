@@ -119,28 +119,41 @@ def create_course_csvs(dept_num_to_start_at):
                             section_root = ET.fromstring(response.text)
 
                             meetings = section_root.find("meetings")
+                            instructors_string = ""
+                            type_string = ""
 
                             for meeting in meetings.findall("meeting"):
                                 #section_info["type"] = meeting.find("type").text
-                                section_info.append(meeting.find("type").text)
+                                #section_info.append(meeting.find("type").text)
+                                if type_string == "":
+                                    type_string = meeting.find("type").text
+                                else:
+                                    type_string += (";" + meeting.find("type").text)
 
                                 instructors = meeting.find("instructors")
                                 
-                                instructors_string = ""
+                                #instructors_string = ""
                                 for instructor in instructors.findall("instructor"):
-                                    instructors_string += (instructor.text + ";")
+                                    if instructors_string == "":
+                                        instructors_string = instructor.text
+                                    else:
+                                        instructors_string += (";" + instructor.text)
                                 
                                 #section_info["instructors"] = instructors_string
-                                section_info.append(instructors_string)
+                                #section_info.append(instructors_string)
 
                                 # make section CSV row
                                 # writer_section.writerow(section_info + dept_info + year_semester)
-                                sect_q.put(section_info + dept_info + year_semester)
+                                #sect_q.put(section_info + dept_info + year_semester)
 
                                 # csv_writer_lock.acquire()
                                 # general_course.flush()
                                 # section_attributes.flush()
                                 # csv_writer_lock.release()
+
+                            section_info.append(type_string)
+                            section_info.append(instructors_string)
+                            sect_q.put(section_info + dept_info + year_semester)
 
                         else: 
                             print(f"Failed to retrieve data for {section.get("href")}, status code: {response.status_code}")

@@ -1,3 +1,4 @@
+CourseNum,CRN,Section,SectionType,Professors,DepartmentCode,Department,Year,Semester
 100,41758,AD1,Discussion/Recitation,"Espiritu, A;Zheng, R;",AAS,Asian American Studies,2023,Fall 2023
 100,47100,AD2,Discussion/Recitation,"Espiritu, A;Zheng, R;",AAS,Asian American Studies,2023,Fall 2023
 220,38779,B  ,Lecture-Discussion,"Roberts, O;",AGCM,Agricultural Communications,2023,Fall 2023
@@ -1616,7 +1617,7 @@
 501,39806,A  ,Lecture-Discussion,"Zhang, Y;",ABE,Agricultural and Biological Engineering,2023,Fall 2023
 110,70003,AD4,Discussion/Recitation,"Cochran, S;O'Brien, D;",ARTH,Art--History,2023,Fall 2023
 500,72863,ONL,Online,"Bear, J;Lee, S;",EPOL,"Education Policy, Organization and Leadership",2023,Fall 2023
-420,78876,BA ,Laboratory,"D’ Orléans Juste, R;",DANC,Dance,2023,Fall 2023
+420,78876,BA ,Laboratory,"Dï¿½ Orlï¿½ans Juste, R;",DANC,Dance,2023,Fall 2023
 505,78807,B  ,Lecture-Discussion,"Lowe, J;Storms, S;",VCM,Veterinary Clinical Medicine,2023,Fall 2023
 320,68173,AB6,Laboratory,"Block, D;Carvalho Manhaes Leite, C;",SE,Systems Engineering and Design,2023,Fall 2023
 232,32727,E  ,Lecture-Discussion,"Abbott, A;Pye, J;",SPAN,Spanish,2023,Fall 2023
@@ -1660,7 +1661,7 @@
 495,51556,A  ,Lecture-Discussion,"Livny, A;",PS,Political Science,2023,Fall 2023
 247,59390,ON2,Online,"Mullen, S;",KIN,Kinesiology,2023,Fall 2023
 221,56814,B  ,Lecture-Discussion,"Colon, I;",LING,Linguistics,2023,Fall 2023
-420,77784,JCA,Laboratory,"D’ Orléans Juste, R;",DANC,Dance,2023,Fall 2023
+420,77784,JCA,Laboratory,"Dï¿½ Orlï¿½ans Juste, R;",DANC,Dance,2023,Fall 2023
 204,76599,AKL,Laboratory,"Anderson, N;Burgess, S;Morphew, N;Winnicki-Smith, S;",IB,Integrative Biology,2023,Fall 2023
 381,46659,A  ,Lecture-Discussion,"Yao, F;",BADM,Business Administration,2023,Fall 2023
 501,10110,,Independent Study,,NRES,Natural Resources and Environmental Sciences,2023,Fall 2023
@@ -1766,7 +1767,7 @@
 594,30597,E1 ,Lecture-Discussion,"Schooley, R;",NRES,Natural Resources and Environmental Sciences,2023,Fall 2023
 252,53109,D1 ,Lecture-Discussion,"Bandin, Y;",SPAN,Spanish,2023,Fall 2023
 252,53109,D1 ,Lecture-Discussion,"Bandin, Y;",Online,"Bandin, Y;",SPAN,Spanish,2023,Fall 2023
-451,16370,AR ,Independent Study,"D’ Orléans Juste, R;",DANC,Dance,2023,Fall 2023
+451,16370,AR ,Independent Study,"Dï¿½ Orlï¿½ans Juste, R;",DANC,Dance,2023,Fall 2023
 681,77298,A  ,Practice,"Richards, V;Wilson, C;",CLE,Clinical Sciences and Engineering,2023,Fall 2023
 259,67720,AB3,Laboratory,"Hutzelmann, D;",KIN,Kinesiology,2023,Fall 2023
 488,73213,A2 ,Lecture-Discussion,"Keating, L;Shim, M;",MSE,Materials Science and Engineering,2023,Fall 2023
@@ -2139,7 +2140,7 @@
 593,30121,1  ,Seminar,"Romberg, K;",ARTH,Art--History,2023,Fall 2023
 598,43023,X  ,Lecture-Discussion,"Schroeder, C;",MSE,Materials Science and Engineering,2023,Fall 2023
 398,70588,M  ,Internship,"Mosley, J;",ANSC,Animal Sciences,2023,Fall 2023
-490,77779,1  ,Laboratory,"D’ Orléans Juste, R;",DANC,Dance,2023,Fall 2023
+490,77779,1  ,Laboratory,"Dï¿½ Orlï¿½ans Juste, R;",DANC,Dance,2023,Fall 2023
 695,78030,A  ,Practice,"Richards, V;Wilson, C;",CLE,Clinical Sciences and Engineering,2023,Fall 2023
 100,35690,A1 ,Lecture-Discussion,"Lyu, G;Travis, L;",PSYC,Psychology,2023,Fall 2023
 475,76918,CNG,Online,"Nadeau, C;",GWS,Gender and Women's Studies,2023,Fall 2023
@@ -2487,7 +2488,7 @@
 221,73189,VC ,Studio,"Vincenzi, C;",ARTS,Art--Studio,2023,Fall 2023
 221,73189,VC ,Studio,"Vincenzi, C;",Studio,"Vincenzi, C;",ARTS,Art--Studio,2023,Fall 2023
 590,75917,A  ,Lecture-Discussion,"Taylor, R;",EPOL,"Education Policy, Organization and Leadership",2023,Fall 2023
-531,62525,AL ,Lecture-Discussion,"D’ Orléans Juste, R;",DANC,Dance,2023,Fall 2023
+531,62525,AL ,Lecture-Discussion,"Dï¿½ Orlï¿½ans Juste, R;",DANC,Dance,2023,Fall 2023
 105,37617,ADK,Discussion/Recitation,"Brooks, J;Li, E;",HDFS,Human Development and Family Studies,2023,Fall 2023
 100,35394,P3 ,Lecture-Discussion,"Myers, R;Travis, L;",PSYC,Psychology,2023,Fall 2023
 441,37078,G1 ,Lecture-Discussion,"Malhi, R;",ANSC,Animal Sciences,2023,Fall 2023
@@ -2517,7 +2518,7 @@
 590,73583,MM ,Online,"Kang, H;",EPOL,"Education Policy, Organization and Leadership",2023,Fall 2023
 635,62251,AL1,Lecture,"Moran, C;",VCM,Veterinary Clinical Medicine,2023,Fall 2023
 520,57919,PRO,Lecture-Discussion,"Raquel, S;",BADM,Business Administration,2023,Fall 2023
-560,62531,A  ,Laboratory,"D’ Orléans Juste, R;",DANC,Dance,2023,Fall 2023
+560,62531,A  ,Laboratory,"Dï¿½ Orlï¿½ans Juste, R;",DANC,Dance,2023,Fall 2023
 302,36690,AY1,Lecture,"Curtis, S;Samet, J;",ACCY,Accountancy,2023,Fall 2023
 490,73057,GJM,Lecture-Discussion,"Ma, W;",LING,Linguistics,2023,Fall 2023
 590,10127,,Independent Study,,FIN,Finance,2023,Fall 2023
@@ -2528,7 +2529,7 @@
 490,43892,,Independent Study,,IB,Integrative Biology,2023,Fall 2023
 443,29750,NP ,Lecture-Discussion,"Cusick, R;",CEE,Civil and Environmental Engineering,2023,Fall 2023
 291,56970,,Independent Study,,SHS,Speech and Hearing Science,2023,Fall 2023
-560,49887,B  ,Laboratory,"D’ Orléans Juste, R;",DANC,Dance,2023,Fall 2023
+560,49887,B  ,Laboratory,"Dï¿½ Orlï¿½ans Juste, R;",DANC,Dance,2023,Fall 2023
 591,70766,A  ,Seminar,"Beever, J;",NUTR,Nutritional Sciences,2023,Fall 2023
 717,76700,A  ,Practice,"Richards, V;Wilson, C;",CLE,Clinical Sciences and Engineering,2023,Fall 2023
 121,30569,A  ,Laboratory-Discussion,"Siena, J;",MUS,Music,2023,Fall 2023
@@ -2581,7 +2582,7 @@
 300,48068,AB3,Laboratory,"Pucilowski, A;",SHS,Speech and Hearing Science,2023,Fall 2023
 303,36713,AE4,Lecture-Discussion,"Godsell, D;",ACCY,Accountancy,2023,Fall 2023
 643,64252,G  ,Lecture-Discussion,"Austin, S;Wilkins, P;",VCM,Veterinary Clinical Medicine,2023,Fall 2023
-598,50808,A  ,Laboratory,"D’ Orléans Juste, R;",DANC,Dance,2023,Fall 2023
+598,50808,A  ,Laboratory,"Dï¿½ Orlï¿½ans Juste, R;",DANC,Dance,2023,Fall 2023
 120,69913,AD2,Discussion/Recitation,"Alexander, C;Smith, S;",HDFS,Human Development and Family Studies,2023,Fall 2023
 592,58360,EA1,Lecture-Discussion,"Choi, J;",FIN,Finance,2023,Fall 2023
 591,72629,HRD,Online,"Huang, W;",EPOL,"Education Policy, Organization and Leadership",2023,Fall 2023
