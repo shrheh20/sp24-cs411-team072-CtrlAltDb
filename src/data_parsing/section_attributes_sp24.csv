@@ -1,3 +1,4 @@
+CourseNum,CRN,Section,SectionType,Professors,DepartmentCode,Department,Year,Semester
 100,30107,AD1,Discussion/Recitation,"Guruparan, A;Zheng, R",AAS,Asian American Studies,2024,Spring 2024
 100,41729,AD2,Discussion/Recitation,"Guruparan, A;Zheng, R",AAS,Asian American Studies,2024,Spring 2024
 199,10206,A  ,Lecture-Discussion,"Axtman-Barker, P",AGCM,Agricultural Communications,2024,Spring 2024
@@ -300,7 +301,7 @@
 120,34086,AD5,Discussion/Recitation,"Hsieh, P;Wilson, R",HIST,History,2024,Spring 2024
 100,34294,ADM,Discussion/Recitation,"Dill, B;Rodriguez-Reyes, M",SOC,Sociology,2024,Spring 2024
 415,52441,B  ,Lecture-Discussion,"Gonzalez, M",CI,Curriculum and Instruction,2024,Spring 2024
-160,31828,A  ,Laboratory,"Aprahamian, S;D’ Orléans Juste, R;Nance, C",DANC,Dance,2024,Spring 2024
+160,31828,A  ,Laboratory,"Aprahamian, S;Dï¿½ Orlï¿½ans Juste, R;Nance, C",DANC,Dance,2024,Spring 2024
 333,65177,GD2,Studio,"Strickland, H",ARTD,Art--Design,2024,Spring 2024
 224,75629,AB3,Laboratory,"Hall, E",GGIS,Geography & Geographic Information Science,2024,Spring 2024
 199,66222,PLT,Lecture-Discussion,"Favila, I;Tempel, D",ENG,Engineering,2024,Spring 2024
@@ -676,7 +677,7 @@
 499,75853,LR2,Lecture-Discussion;Lecture-Discussion;Online Discussion,"Rodriguez, L;Rodriguez, L;Rodriguez, L",ETMA,Engineering Technology and Management for Agricultural Systems,2024,Spring 2024
 322,31038,D  ,Lecture-Discussion,"Bao, Y",BADM,Business Administration,2024,Spring 2024
 598,57828,LC ,Lecture-Discussion,"Federmeier, K",NEUR,Neuroscience,2024,Spring 2024
-245,61018,A  ,Laboratory,"Ayorinde, O;Brandano, J;D’ Orléans Juste, R;Marini, N",DANC,Dance,2024,Spring 2024
+245,61018,A  ,Laboratory,"Ayorinde, O;Brandano, J;Dï¿½ Orlï¿½ans Juste, R;Marini, N",DANC,Dance,2024,Spring 2024
 490,74796,A  ,Online,"Rosch, D",ALEC,"Agricultural Leadership, Education, and Communications Program",2024,Spring 2024
 436,75587,A  ,Lecture-Discussion,"Punyasena, S",GGIS,Geography & Geographic Information Science,2024,Spring 2024
 490,52524,A1 ,Lecture-Discussion,"Ozcan, A;Saadah, E",TURK,Turkish,2024,Spring 2024
@@ -745,7 +746,7 @@
 599,74535,,Independent Study,,ETMA,Engineering Technology and Management for Agricultural Systems,2024,Spring 2024
 606,51807,BG ,Lecture-Discussion,"Mazzone, J",LAW,Law,2024,Spring 2024
 447,75962,A  ,Online,"Stalter, K",CI,Curriculum and Instruction,2024,Spring 2024
-260,63390,A  ,Laboratory;Packaged Section,"Aprahamian, S;D’ Orléans Juste, R;Nance, C;Aprahamian, S;D’ Orléans Juste, R;Nance, C",DANC,Dance,2024,Spring 2024
+260,63390,A  ,Laboratory;Packaged Section,"Aprahamian, S;Dï¿½ Orlï¿½ans Juste, R;Nance, C;Aprahamian, S;Dï¿½ Orlï¿½ans Juste, R;Nance, C",DANC,Dance,2024,Spring 2024
 199,10282,,Independent Study,,UKR,Ukrainian,2024,Spring 2024
 226,57088,AB2,Laboratory,"Maitra, S;Mishra, S;Singh, V",ABE,Agricultural and Biological Engineering,2024,Spring 2024
 499,65501,CAG,Studio,"Araujo de Aguiar, C",ARTD,Art--Design,2024,Spring 2024
@@ -1290,7 +1291,7 @@
 282,51496,AD4,Discussion/Recitation,"Lee, J",PS,Political Science,2024,Spring 2024
 224,54703,AB2,Laboratory,"Ibrahim, S;Knox, R;Miller, D",ANSC,Animal Sciences,2024,Spring 2024
 479,69189,A  ,Lecture,"Steward, D",SOC,Sociology,2024,Spring 2024
-420,75583,BA ,Laboratory,"D’ Orléans Juste, R",DANC,Dance,2024,Spring 2024
+420,75583,BA ,Laboratory,"Dï¿½ Orlï¿½ans Juste, R",DANC,Dance,2024,Spring 2024
 599,10177,,Independent Study,,ABE,Agricultural and Biological Engineering,2024,Spring 2024
 656,42014,G  ,Lecture,"Keenan, P",LAW,Law,2024,Spring 2024
 480,57046,ONC,Online,"Liebenberg, L",NPRE,"Nuclear, Plasma, and Radiological Engineering",2024,Spring 2024
@@ -1578,7 +1579,7 @@
 596,73600,ONL,Online,"Uddin, R",NPRE,"Nuclear, Plasma, and Radiological Engineering",2024,Spring 2024
 330,70836,ZJ2,Lecture,"Saif, M",ME,Mechanical Engineering,2024,Spring 2024
 221,32562,ADS,Discussion/Recitation,"Asif, A;Mendelson, J",FIN,Finance,2024,Spring 2024
-451,16366,TW ,Independent Study,"D’ Orléans Juste, R",DANC,Dance,2024,Spring 2024
+451,16366,TW ,Independent Study,"Dï¿½ Orlï¿½ans Juste, R",DANC,Dance,2024,Spring 2024
 363,59971,A  ,Discussion/Recitation;Online Lecture;Online Lecture,"Kukekova, A;Kukekova, A;Kukekova, A",ANSC,Animal Sciences,2024,Spring 2024
 354,44276,A  ,Packaged Section;Travel,"Djordjevic, S;Jaimes, M;Djordjevic, S;Jaimes, M",HIST,History,2024,Spring 2024
 437,65756,ONL,Online,"Marinas, B",CEE,Civil and Environmental Engineering,2024,Spring 2024
@@ -1785,7 +1786,7 @@
 202,30168,ADO,Discussion/Recitation,"Patel, L;Shapland, J",ACCY,Accountancy,2024,Spring 2024
 595,10443,,Independent Study,,CI,Curriculum and Instruction,2024,Spring 2024
 460,75661,SAR,Online,"Ball, C",JOUR,Journalism,2024,Spring 2024
-490,74995,A  ,Laboratory,"D’ Orléans Juste, R",DANC,Dance,2024,Spring 2024
+490,74995,A  ,Laboratory,"Dï¿½ Orlï¿½ans Juste, R",DANC,Dance,2024,Spring 2024
 398,59065,MCG,Travel,"Cattai de Godoy, M",ANSC,Animal Sciences,2024,Spring 2024
 392,56964,AL1,Lecture,"Wedig, T",GLBL,Global Studies,2024,Spring 2024
 300,39481,P1 ,Lecture-Discussion,"Marcinkowski, M",FIN,Finance,2024,Spring 2024
@@ -2167,7 +2168,7 @@
 696,58160,AS ,Lecture,"Schulte, A",LAW,Law,2024,Spring 2024
 303,30271,AE3,Lecture-Discussion,"Pachera, S",ACCY,Accountancy,2024,Spring 2024
 537,41513,A  ,Lecture-Discussion,"Rindfleisch, A",BADM,Business Administration,2024,Spring 2024
-560,66859,B  ,Independent Study,"D’ Orléans Juste, R",DANC,Dance,2024,Spring 2024
+560,66859,B  ,Independent Study,"Dï¿½ Orlï¿½ans Juste, R",DANC,Dance,2024,Spring 2024
 499,10254,,Independent Study,,ANSC,Animal Sciences,2024,Spring 2024
 590,10195,,Independent Study,,PS,Political Science,2024,Spring 2024
 287,52484,AD3,Discussion/Recitation,"Warland, S",NRES,Natural Resources and Environmental Sciences,2024,Spring 2024
@@ -2182,7 +2183,7 @@
 590,26052,CC1,Online,"Gaines, B",PS,Political Science,2024,Spring 2024
 261,68728,AL1,Lecture-Discussion,"Hunt, A",JS,Jewish Studies,2024,Spring 2024
 491,31740,D3 ,Lecture-Discussion,"Gardoni, P",CEE,Civil and Environmental Engineering,2024,Spring 2024
-560,47288,C  ,Independent Study,"D’ Orléans Juste, R",DANC,Dance,2024,Spring 2024
+560,47288,C  ,Independent Study,"Dï¿½ Orlï¿½ans Juste, R",DANC,Dance,2024,Spring 2024
 499,55563,AF ,Lecture;Online Discussion,"Fischer-Brown, A;Fischer-Brown, A",ANSC,Animal Sciences,2024,Spring 2024
 273,39308,M  ,Lecture-Discussion;Lecture-Discussion,"Newcomb, J;Newcomb, J",ENGL,English,2024,Spring 2024
 350,67042,A  ,Lecture-Discussion;Online,"Soulard, J;Soulard, J",RST,"Recreation, Sport, and Tourism",2024,Spring 2024
@@ -2237,7 +2238,7 @@
 495,60658,,Independent Study,,JS,Jewish Studies,2024,Spring 2024
 544,59980,MM1,Lecture-Discussion,"Corredor Waldron, S",BADM,Business Administration,2024,Spring 2024
 597,32437,D  ,Discussion/Recitation,"Chettiar, T",HIST,History,2024,Spring 2024
-598,48991,A  ,Laboratory,"D’ Orléans Juste, R",DANC,Dance,2024,Spring 2024
+598,48991,A  ,Laboratory,"Dï¿½ Orlï¿½ans Juste, R",DANC,Dance,2024,Spring 2024
 499,46879,MG2,Online,"Cattai de Godoy, M",ANSC,Animal Sciences,2024,Spring 2024
 597,59512,A  ,Lecture-Discussion,"Gaines, B",PS,Political Science,2024,Spring 2024
 281,32108,X  ,Lecture-Discussion,"Baron, I",ENGL,English,2024,Spring 2024

@@ -1,3 +1,4 @@
+CourseNum,CRN,Section,SectionType,Professors,DepartmentCode,Department,Year,Semester
 100,41758,AD1,Discussion/Recitation,"Espiritu, A;Zheng, R",AAS,Asian American Studies,2023,Fall 2023
 100,47100,AD2,Discussion/Recitation,"Espiritu, A;Zheng, R",AAS,Asian American Studies,2023,Fall 2023
 220,38779,B  ,Lecture-Discussion,"Roberts, O",AGCM,Agricultural Communications,2023,Fall 2023
@@ -1458,7 +1459,7 @@
 204,49812,ABG,Laboratory,"Anderson, N;Burgess, S;Morphew, N;Prayugo, V",IB,Integrative Biology,2023,Fall 2023
 501,39806,A  ,Lecture-Discussion,"Zhang, Y",ABE,Agricultural and Biological Engineering,2023,Fall 2023
 199,10522,,Independent Study,"Mishra, M",LING,Linguistics,2023,Fall 2023
-420,78876,BA ,Laboratory,"D’ Orléans Juste, R",DANC,Dance,2023,Fall 2023
+420,78876,BA ,Laboratory,"Dï¿½ Orlï¿½ans Juste, R",DANC,Dance,2023,Fall 2023
 320,68172,AB5,Laboratory,"Block, D;Wang, R",SE,Systems Engineering and Design,2023,Fall 2023
 457,61140,B  ,Lecture-Discussion,"Evans, C;Kim, C;Lan, P",MSE,Materials Science and Engineering,2023,Fall 2023
 230,43225,A  ,Online,"Stodolska, M",KIN,Kinesiology,2023,Fall 2023
@@ -1497,7 +1498,7 @@
 494,60013,A  ,Lecture-Discussion,"Mondak, J",PS,Political Science,2023,Fall 2023
 320,68167,AE1,Lecture-Discussion,"Etesami, S",SE,Systems Engineering and Design,2023,Fall 2023
 665,73894,C  ,Practice,"Richards, V;Wilson, C",CLE,Clinical Sciences and Engineering,2023,Fall 2023
-420,77784,JCA,Laboratory,"D’ Orléans Juste, R",DANC,Dance,2023,Fall 2023
+420,77784,JCA,Laboratory,"Dï¿½ Orlï¿½ans Juste, R",DANC,Dance,2023,Fall 2023
 280,39526,Q  ,Lecture-Discussion,"McKinney, C",GWS,Gender and Women's Studies,2023,Fall 2023
 487,68322,L1 ,Lecture,"Arai, Y",NRES,Natural Resources and Environmental Sciences,2023,Fall 2023
 204,74764,ABK,Laboratory,"Anderson, N;Burgess, S;Morphew, N;Winnicki-Smith, S",IB,Integrative Biology,2023,Fall 2023
@@ -1614,7 +1615,7 @@
 225,32023,AL1,Lecture-Discussion,"Ionin, T;Tighe, A",LING,Linguistics,2023,Fall 2023
 259,67722,AB4,Laboratory,"Hutzelmann, D",KIN,Kinesiology,2023,Fall 2023
 199,71857,CPA,Lecture-Discussion,"Lullo, M",ACCY,Accountancy,2023,Fall 2023
-451,16370,AR ,Independent Study,"D’ Orléans Juste, R",DANC,Dance,2023,Fall 2023
+451,16370,AR ,Independent Study,"Dï¿½ Orlï¿½ans Juste, R",DANC,Dance,2023,Fall 2023
 255,74441,DS ,Online Lecture,"Shike, D",ANSC,Animal Sciences,2023,Fall 2023
 254,53110,F  ,Lecture-Discussion,"Gonzalez, C",SPAN,Spanish,2023,Fall 2023
 405,31541,3A ,Laboratory;Lecture,"Vyas, A;Hajj, R",CEE,Civil and Environmental Engineering,2023,Fall 2023
@@ -1964,7 +1965,7 @@
 462,59581,KFU,Lecture-Discussion,"Flynn, K",GWS,Gender and Women's Studies,2023,Fall 2023
 553,75849,V3 ,Lecture-Discussion,"Duarte, V",FIN,Finance,2023,Fall 2023
 391,61859,,Independent Study,,LING,Linguistics,2023,Fall 2023
-490,77779,1  ,Laboratory,"D’ Orléans Juste, R",DANC,Dance,2023,Fall 2023
+490,77779,1  ,Laboratory,"Dï¿½ Orlï¿½ans Juste, R",DANC,Dance,2023,Fall 2023
 326,53152,D  ,Lecture-Discussion,"Garcia - Blizzard, M",SPAN,Spanish,2023,Fall 2023
 352,32017,AY1,Laboratory-Discussion,"Askow, A;Barnes, T",KIN,Kinesiology,2023,Fall 2023
 202,36568,AD5,Discussion/Recitation,"Matovic, A;Shapland, J",ACCY,Accountancy,2023,Fall 2023
@@ -2285,7 +2286,7 @@
 489,63262,G4 ,Lecture-Discussion,"Mendoza, A",LING,Linguistics,2023,Fall 2023
 520,70299,IMB,Online,"Noel, H;Rodas, M",BADM,Business Administration,2023,Fall 2023
 482,35509,A  ,Laboratory;Lecture,"Hanks, L;Wargin, A;Hanks, L",IB,Integrative Biology,2023,Fall 2023
-531,62525,AL ,Lecture-Discussion,"D’ Orléans Juste, R",DANC,Dance,2023,Fall 2023
+531,62525,AL ,Lecture-Discussion,"Dï¿½ Orlï¿½ans Juste, R",DANC,Dance,2023,Fall 2023
 100,35492,P1 ,Lecture-Discussion,"Lo, Y;Travis, L",PSYC,Psychology,2023,Fall 2023
 435,78157,DN ,Online Discussion;Online Lecture,"Nolan, D;Nolan, D",ANSC,Animal Sciences,2023,Fall 2023
 105,37613,ADG,Discussion/Recitation,"Brooks, J;Carter, M",HDFS,Human Development and Family Studies,2023,Fall 2023
@@ -2315,7 +2316,7 @@
 442,67284,ONL,Online,"Espinosa Marzal, R",CEE,Civil and Environmental Engineering,2023,Fall 2023
 635,62251,AL1,Lecture,"Moran, C",VCM,Veterinary Clinical Medicine,2023,Fall 2023
 440,34101,AL1,Lecture,"Lipka, A",ANSC,Animal Sciences,2023,Fall 2023
-560,62531,A  ,Laboratory,"D’ Orléans Juste, R",DANC,Dance,2023,Fall 2023
+560,62531,A  ,Laboratory,"Dï¿½ Orlï¿½ans Juste, R",DANC,Dance,2023,Fall 2023
 107,37684,AD3,Discussion/Recitation,"Lee, J;Zhang, A",MUS,Music,2023,Fall 2023
 716,74783,A  ,Practice,"Richards, V;Wilson, C",CLE,Clinical Sciences and Engineering,2023,Fall 2023
 587,72218,LD1,Online,"Cope, W;Francis, K;Kalantzis, M",EPOL,"Education Policy, Organization and Leadership",2023,Fall 2023
@@ -2328,7 +2329,7 @@
 440,34033,AY2,Online Lab,"Lipka, A",ANSC,Animal Sciences,2023,Fall 2023
 490,73057,GJM,Lecture-Discussion,"Ma, W",LING,Linguistics,2023,Fall 2023
 291,56970,,Independent Study,,SHS,Speech and Hearing Science,2023,Fall 2023
-560,49887,B  ,Laboratory,"D’ Orléans Juste, R",DANC,Dance,2023,Fall 2023
+560,49887,B  ,Laboratory,"Dï¿½ Orlï¿½ans Juste, R",DANC,Dance,2023,Fall 2023
 107,52827,AD4,Discussion/Recitation,"Jiang, J;Zhang, A",MUS,Music,2023,Fall 2023
 490,43892,,Independent Study,,IB,Integrative Biology,2023,Fall 2023
 587,72221,LD2,Online,"Cope, W;Francis, K;Kalantzis, M",EPOL,"Education Policy, Organization and Leadership",2023,Fall 2023
@@ -2385,7 +2386,7 @@
 643,64252,G  ,Lecture-Discussion,"Austin, S;Wilkins, P",VCM,Veterinary Clinical Medicine,2023,Fall 2023
 539,74713,A  ,Lecture-Discussion,"Liu, Y",BADM,Business Administration,2023,Fall 2023
 444,69982,ONL,Online,"Wei, N",CEE,Civil and Environmental Engineering,2023,Fall 2023
-598,50808,A  ,Laboratory,"D’ Orléans Juste, R",DANC,Dance,2023,Fall 2023
+598,50808,A  ,Laboratory,"Dï¿½ Orlï¿½ans Juste, R",DANC,Dance,2023,Fall 2023
 550,30600,1  ,Lecture-Discussion,"Flaws, J;Ridlon, J",NUTR,Nutritional Sciences,2023,Fall 2023
 300,35077,AE1,Lecture,"Pucilowski, A",SHS,Speech and Hearing Science,2023,Fall 2023
 391,10477,,Independent Study,,KIN,Kinesiology,2023,Fall 2023
