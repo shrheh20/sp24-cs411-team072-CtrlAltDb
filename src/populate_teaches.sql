@@ -10,8 +10,11 @@
     Great resources on being able to process and split strings:
     https://www.sql-easy.com/learn/how-to-extract-a-substring-from-a-string-in-postgresql-mysql/
     https://www.w3schools.com/mysql/func_mysql_instr.asp
+    https://stackoverflow.com/questions/49034402/mysql-while-loop-continue-is-not-recognized
 
 */
+DELIMITER //
+
 CREATE PROCEDURE populate_teaches()
     BEGIN
         DECLARE done INT default 0;
@@ -31,7 +34,7 @@ CREATE PROCEDURE populate_teaches()
 
         REPEAT
             FETCH section_cur INTO temp_CRN, temp_Semester, temp_Year, temp_Professors, temp_DepartmentCode;
-            WHILE LENGTH(temp_Professors) > 0 DO
+            string_loop: WHILE LENGTH(temp_Professors) > 0 DO
                 SET semicolon_pos = INSTR(temp_Professors, ';');
 
                 IF semicolon_pos > 0 THEN
@@ -50,7 +53,7 @@ CREATE PROCEDURE populate_teaches()
                 END IF;
 
                 IF temp_NetId IS NULL THEN
-                    CONTINUE;
+                    ITERATE string_loop;
                 ELSE
                     INSERT INTO Teaches(CRN, Semester, Year, NetId)
                     VALUES(temp_CRN, temp_Semester, temp_Year, temp_NetId);
@@ -59,4 +62,8 @@ CREATE PROCEDURE populate_teaches()
         UNTIL done
         END REPEAT;
         CLOSE section_cur;
-    END
+    END //
+
+DELIMITER ;
+
+CALL populate_teaches();

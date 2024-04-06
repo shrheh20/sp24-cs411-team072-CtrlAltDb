@@ -89,9 +89,9 @@ CREATE TABLE IF NOT EXISTS UserFeedback(
     CRN                     INT,
     Semester                VARCHAR(16),
     Testimony               VARCHAR(16384),
-    Rating                  DECIMAL,
-    Difficulty              DECIMAL,
-    TimeCommit              DECIMAL,
+    Rating                  DECIMAL(10,2),
+    Difficulty              DECIMAL(10,2),
+    TimeCommit              DECIMAL(10,2),
     Time_stamp              TIMESTAMP, 
     FOREIGN KEY (Email) REFERENCES Users(Email) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (CRN, Semester, Year) REFERENCES SectionAttributes(CRN, Semester, Year) ON DELETE CASCADE ON UPDATE CASCADE
