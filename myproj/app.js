@@ -84,8 +84,8 @@ app.use(function(err, req, res, next) {
 });
 
 
-const PORT = 80; 
-app.listen(PORT, '0.0.0.0', () => {
+// const PORT = 8080; 
+app.listen(8080, '0.0.0.0', () => {
     console.log(`Server running on port ${PORT}`);
 });
 module.exports = app;
