@@ -1,3 +1,4 @@
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -82,4 +83,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+const PORT = 80; 
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`);
+});
 module.exports = app;
