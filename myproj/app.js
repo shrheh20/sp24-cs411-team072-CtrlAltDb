@@ -29,14 +29,23 @@ var db = mysql.createConnection({
   host: '34.173.61.66',  // GCP database host
   user: 'root',  //  database username
   password: 'test1234',  // database password
-  database: 'uiuc_course_hub'  // database name
+  database: 'uiuc_course_hub', // database name
+  connectTimeout: 10000 
 });
 
 // Connect to the database
+// db.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Connected to database!");
+// });
 db.connect(function(err) {
-  if (err) throw err;
+  if (err) {
+    console.error('Error connecting to the database: ' + err.stack);
+    return;
+  }
   console.log("Connected to database!");
 });
+
 
 // Route to handle the search form submission and fetch data based on user-entered CRN
 app.get('/search', function(req, res, next) {
@@ -86,6 +95,6 @@ app.use(function(err, req, res, next) {
 
 // const PORT = 8080; 
 app.listen(8080, '0.0.0.0', () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`Server running on port 8080`);
 });
 module.exports = app;
