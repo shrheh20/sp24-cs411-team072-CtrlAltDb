@@ -28,6 +28,8 @@ CREATE TABLE IF NOT EXISTS GeneralCourse(
     GenEdAtrrib             VARCHAR(255),
     DepartmentCode          VARCHAR(10),
     Department              VARCHAR(255),
+    AvgRating               DECIMAL(10,2),
+    NumRatings              INT,
     PRIMARY KEY (CourseNum, DepartmentCode)
 );
 

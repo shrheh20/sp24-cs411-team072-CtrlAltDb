@@ -28,7 +28,7 @@ app.use('/users', usersRouter);
 var db = mysql.createConnection({
   host: '34.173.61.66',  // GCP database host
   user: 'root',  //  database username
-  password: 'test1234',  // database password
+  password: 'acY5q*r0B+#g_u-U',  // database password
   database: 'uiuc_course_hub', // database name
   connectTimeout: 10000 
 });
