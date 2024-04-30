@@ -1,27 +1,28 @@
-DELIMETER //
-CREATE TRIGGER AvgRatingTrig_Delete
-    DECLARE @CourseNum               INT;
-    DECLARE @DepartmentCode          VARCHAR(10);
-    DECLARE @NumRatings              INT;
-    BEFORE DELETE ON UserFeedback
-    FOR EACH ROW
-    BEGIN
-        SELECT @NumRatings = g.NumRatings,
-               @CourseNum = g.CourseNum,
-               @DepartmentCode = g.DepartmentCode
-            FROM GeneralCourse g JOIN SectionAttributes s ON 
-            g.CourseNum = s.CourseNum AND g.Departmentcode = s.DepartmentCode
-            WHERE s.CRN = old.CRN AND s.Semester = old.Semester AND s.Year = old.Year;
-        IF @NumRatings = 1 THEN
-                UPDATE GeneralCourse
-                SET NumRatings = 0, AvgRating = NULL
-                WHERE CourseNum = @CourseNum AND DepartmentCode = @DepartmentCode;
-        ELSE
-                UPDATE GeneralCourse
-                SET NumRatings = @NumRatings - 1, AvgRating = ((AvgRating * @NumRatings) - old.Rating) / (@NumRatings - 1)
-                WHERE CourseNum = @CourseNum AND DepartmentCode = @DepartmentCode;
-        END IF;
+DELIMITER //
 
-    END;
+CREATE TRIGGER AvgRatingTrig_Delete
+BEFORE DELETE ON UserFeedback
+FOR EACH ROW
+BEGIN
+    DECLARE _CourseNum               INT;
+    DECLARE _DepartmentCode          VARCHAR(10);
+    DECLARE _NumRatings              INT;
+
+    SELECT g.NumRatings, g.CourseNum, g.DepartmentCode
+    INTO _NumRatings, _CourseNum, _DepartmentCode
+    FROM GeneralCourse g JOIN SectionAttributes s ON 
+        g.CourseNum = s.CourseNum AND g.Departmentcode = s.DepartmentCode
+    WHERE s.CRN = old.CRN AND s.Semester = old.Semester AND s.Year = old.Year;
+
+    IF _NumRatings = 1 THEN
+        UPDATE GeneralCourse
+        SET NumRatings = 0, AvgRating = NULL
+        WHERE CourseNum = _CourseNum AND DepartmentCode = _DepartmentCode;
+    ELSE
+        UPDATE GeneralCourse
+        SET NumRatings = _NumRatings - 1, AvgRating = ((AvgRating * _NumRatings) - old.Rating) / (_NumRatings - 1)
+        WHERE CourseNum = _CourseNum AND DepartmentCode = _DepartmentCode;
+    END IF;
+END;
 //
-DELIMETER ;
+DELIMITER ;
