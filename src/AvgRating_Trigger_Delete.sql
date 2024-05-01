@@ -16,7 +16,7 @@ BEGIN
 
     IF _NumRatings = 1 THEN
         UPDATE GeneralCourse
-        SET NumRatings = 0, AvgRating = NULL
+        SET NumRatings = NULL, AvgRating = NULL
         WHERE CourseNum = _CourseNum AND DepartmentCode = _DepartmentCode;
     ELSE
         UPDATE GeneralCourse
