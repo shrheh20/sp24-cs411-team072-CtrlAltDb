@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS Teaches(
 );
 
 CREATE TABLE IF NOT EXISTS UserFeedback(
-    FeedbackId              VARCHAR(255) PRIMARY KEY,
+    FeedbackId              INT AUTO_INCREMENT,
     Email                   VARCHAR(255),
     Year                    INT,
     CRN                     INT,
@@ -96,5 +96,6 @@ CREATE TABLE IF NOT EXISTS UserFeedback(
     TimeCommit              DECIMAL(10,2),
     Time_stamp              TIMESTAMP, 
     FOREIGN KEY (Email) REFERENCES Users(Email) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (CRN, Semester, Year) REFERENCES SectionAttributes(CRN, Semester, Year) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (CRN, Semester, Year) REFERENCES SectionAttributes(CRN, Semester, Year) ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY (FeedbackId)
 );
