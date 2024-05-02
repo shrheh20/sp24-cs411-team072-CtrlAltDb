@@ -51,6 +51,8 @@ db.connect(function(err) {
 app.get('/search', function(req, res, next) {
   // Extract the CRN from the query string
   const userCRN = req.query.CRN;
+  const courseTitle = req.query.courseTitle || '';
+  const professorName = req.query.professorName || '';
 
   // Validate that the CRN is a numeric value
   if (!userCRN || isNaN(userCRN)) {
@@ -58,10 +60,16 @@ app.get('/search', function(req, res, next) {
   }
 
   // Construct the query
-  const query = 'SELECT * FROM GPAHistory WHERE CRN = ?';
+ const query = 'SELECT CourseName, CRN, CourseNum, Avg_Grade, Instructor, Semester, Year FROM GPAHistory WHERE CRN = ? and CourseName LIKE ? and Instructor LIKE ?';
+  
+  const queryParams = [
+        userCRN,
+        `%${courseTitle}%`,
+        `%${professorName}%`
+    ];
 
   // Execute the query with the CRN parameter
-  db.query(query, [userCRN], function(err, results) {
+  db.query(query, queryParams, function(err, results) {
     if (err) {
       // Handle any database errors
       return next(err);
