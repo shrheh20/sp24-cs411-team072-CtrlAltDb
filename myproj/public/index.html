@@ -61,6 +61,20 @@
     justify-content: center;
     margin-bottom: 10px;
   }
+  table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
 </style>
 </head>
 <body>
@@ -90,6 +104,63 @@
     </div>
   </form>
 </div>
+<div id="result-container"></div>
 
+    <script>
+        const searchForm = document.getElementById('search-form');
+        const resultContainer = document.getElementById('result-container');
+
+        searchForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(searchForm);
+            const searchParams = new URLSearchParams(formData).toString();
+
+            fetch(`/search?${searchParams}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        resultContainer.innerHTML = `<p>${data.message}</p>`;
+                    } else {
+                        const table = createTable(data);
+                        resultContainer.innerHTML = '';
+                        resultContainer.appendChild(table);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    resultContainer.innerHTML = '<p>An error occurred while fetching the data.</p>';
+                });
+        });
+
+        function createTable(data) {
+            const table = document.createElement('table');
+            const thead = document.createElement('thead');
+            const tbody = document.createElement('tbody');
+
+            const headerRow = document.createElement('tr');
+            const headers = ['Course Name', 'CRN', 'Course Number', 'Avg Grade', 'Instructor', 'Semester', 'Year'];
+            headers.forEach(header => {
+                const th = document.createElement('th');
+                th.textContent = header;
+                headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                const values = [row.CourseName, row.CRN, row.CourseNum, row.Avg_Grade, row.Instructor, row.Semester, row.Year];
+                values.forEach(value => {
+                    const td = document.createElement('td');
+                    td.textContent = value;
+                    tr.appendChild(td);
+                });
+                tbody.appendChild(tr);
+            });
+
+            table.appendChild(thead);
+            table.appendChild(tbody);
+            return table;
+        }
+    </script>
 </body>
 </html>
