@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Course Review</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: #f9f9f9;
+        }
+        header {
+            background-color: #13294b; 
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        header .logo img {
+            width: 130px; 
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            transition: background-color 0.3s;
+        }
+        nav ul li a.active,
+        nav ul li a:hover {
+            background-color: #e84a27; 
+            border-radius: 4px;
+        }
+        .intro {
+            text-align: center;
+            padding: 2em 0;
+            background: #13294b; 
+            color: white;
+            margin-bottom: 2em;
+        }
+        .intro h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+        .intro p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: auto;
+        }
+        .search {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+            /* display: flex;
+            flex-direction: column; */
+            align-items: center;
+            padding-bottom: 2em;
+        }
+        #reviewForm{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        #reviewForm input[type="text"],
+        #reviewForm button {
+            margin: 0.5em 0;
+            padding: 12px;
+            width: 566px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: block;
+            transition: box-shadow 0.3s;
+        }
+        #reviewForm input[type="number"],
+        #reviewForm button {
+            margin: 0.5em 0;
+            padding: 12px;
+            width: 566px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: block;
+            transition: box-shadow 0.3s;
+        }
+        #reviewForm input[type="email"],
+        #reviewForm button {
+            margin: 0.5em 0;
+            padding: 12px;
+            width: 566px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: block;
+            transition: box-shadow 0.3s;
+        }
+        #reviewForm input[type="textarea"],
+        #reviewForm button {
+            margin: 0.5em 0;
+            padding: 12px;
+            width: 566px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: block;
+            transition: box-shadow 0.3s;
+        }
+        textarea{
+            width:566px;
+            padding:10px;
+        }
+        #reviewForm input[type="text"]:focus,
+        #reviewForm button:focus {
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            outline: none;
+        }
+        #reviewForm button {
+            background-color: #e84a27; /* Orange color from the logo */
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        #reviewForm button:hover {
+            background-color: #c73f1d; 
+        }
+        footer {
+            background-color: #13294b; 
+            color: white;
+            text-align: center;
+            padding: 1em;
+            margin-top: auto;
+        }
+        footer p {
+            margin: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+        .response-output {
+            width: 90%;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .response-output {
+            margin-top: 1rem;
+        }
+        .form-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            flex: 0 0 200px; /* Adjust the width as needed */
+            margin-right: 10px;
+            text-align: right;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            flex: 1;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="data:image/png;base64,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" alt="UIUC Logo"> 
+        </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" >Home</a></li>
+                    <li><a href="coursereviews.html">Course Reviews</a></li>
+                    <li><a href="userfeedback.html" class="active">User Feedback</a></li>
+                    <li><a href="topclasses.html">Top Classes</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="about.html">About</a></li>
+                    
+                </ul>
+            </nav>
+        </header>
+    <section class="intro">
+        <h1>Course Review Submission</h1>
+    </section>
+    <main>
+        <section class="search">
+            <div class="form-container">
+        <form id="reviewForm" action="/submitReview" method="POST">
+                <!-- <label for="email">University Email:</label> -->
+                <input type="email" id="email" name="email" placeholder="netid@illinois.edu" required>
+            
+                <!-- <label for="crn">Course CRN:</label> -->
+                <input type="number" id="crn" name="crn" placeholder="Course CRN" required>
+            
+            
+                <!-- <label for="year">Year:</label> -->
+                <input type="number" id="year" name="year" placeholder="Year taken" required>
+            
+            
+                <!-- <label for="semester">Semester:</label> -->
+                <input type="text" id="semester" name="semester" placeholder="Semester (e.g., Fall 2024)" required>
+            
+            
+                <!-- <label for="testimony">Testimony:</label> -->
+                <textarea id="testimony" name="testimony" rows="4" placeholder="Write your review here..." required></textarea>
+            
+            
+                <!-- <label for="rating">Rating (1.0 - 10.0):</label> -->
+                <input type="number" id="rating" name="rating" step="0.1" min="1" max="10" placeholder="Rate the course (1.0 - 10.0)" required>
+            
+            
+                <!-- <label for="difficulty">Difficulty (1.0 - 10.0):</label> -->
+                <input type="number" id="difficulty" name="difficulty" step="0.1" min="1" max="10" placeholder="Difficulty level (1.0-10.0)" required>
+            
+            
+                <!-- <label for="timeCommit">Time Commitment (hours per week):</label> -->
+                <input type="number" id="timeCommit" name="timeCommit" min="1" max="40" step="0.1" placeholder="Time spent per week" required>
+            
+            <button type="button" id="submitReview">Submit Review</button>
+            <button type="button" id="deleteReview">Delete Review</button>
+            <button type="button" id="updateReview"> Update Review</button>
+            <button type="button" id="deleteAllReviews"> WARNING: DELETE ALL REVIEWS FROM EMAIL</button>
+        </form>
+        </section>
+        <!-- Response Output Area -->
+        <div class="response-output" id="responseOutput"></div>
+    </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Course Investigator. All rights reserved.</p>
+    </footer>
+    <script>
+        ocument.getElementById('submitReview').addEventListener('click', function(event) {
+            event.preventDefault();
+            const formData = {
+                email: document.getElementById('email').value,
+                crn: document.getElementById('crn').value,
+                year: document.getElementById('year').value,
+                semester: document.getElementById('semester').value,
+                testimony: document.getElementById('testimony').value,
+                rating: document.getElementById('rating').value,
+                difficulty: document.getElementById('difficulty').value,
+                timeCommit: document.getElementById('timeCommit').value
+            };
+        
+            // Call your API endpoint with form data
+            fetch('/submitReview', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                const reviewData = data.data;
+                // Process and display the data
+                const outputDiv = document.getElementById('responseOutput');
+                outputDiv.innerHTML = '';
+                const dataDiv = document.createElement('div');
+                dataDiv.innerHTML = `<strong>Review Submitted:</strong> <br>Email: ${reviewData.email}<br>CRN: ${reviewData.crn}<br>Year: ${reviewData.year}<br>Semester: ${reviewData.semester}<br>Testimony: ${reviewData.testimony}<br>Rating: ${reviewData.rating}<br>Difficulty: ${reviewData.difficulty}<br>Time Commitment: ${reviewData.timeCommit} hours/week<br>`;
+                outputDiv.appendChild(dataDiv);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('responseOutput').innerHTML = 'Failed to submit review.';
+            });
+
+            // Clear form fields after submission
+            //document.getElementById('reviewForm').reset();
+        });
+
+
+        document.getElementById('deleteReview').addEventListener('click', function(event) {
+            event.preventDefault();
+            const deleteFormData = {
+                email: document.getElementById('email').value,
+                crn: document.getElementById('crn').value,
+                year: document.getElementById('year').value,
+                semester: document.getElementById('semester').value,
+            };
+            const url = `/deleteReview?email=${deleteFormData.email}&crn=${deleteFormData.crn}&year=${deleteFormData.year}&semester=${deleteFormData.semester}`;
+            fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+                //body: JSON.stringify(deleteFormData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                const outputDiv = document.getElementById('responseOutput');
+                outputDiv.innerHTML = '';
+                console.log('Review deleted', data);
+                outputDiv.innerHTML = 'Review deleted successfully.';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('responseOutput').innerHTML = 'Failed to delete review';
+            });
+
+        });
+
+        document.getElementById('updateReview').addEventListener('click', function(event) {
+            event.preventDefault();
+            const updateFormData = {
+                email: document.getElementById('email').value,
+                crn: document.getElementById('crn').value,
+                year: document.getElementById('year').value,
+                semester: document.getElementById('semester').value,
+                testimony: document.getElementById('testimony').value,
+                rating: document.getElementById('rating').value,
+                difficulty: document.getElementById('difficulty').value,
+                timeCommit: document.getElementById('timeCommit').value
+            };
+        
+            // Call your API endpoint with form data
+            fetch('/updateReview', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updateFormData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                const reviewData = data.data;
+                // Process and display the data
+                const outputDiv = document.getElementById('responseOutput');
+                outputDiv.innerHTML = '';
+                const dataDiv = document.createElement('div');
+                dataDiv.innerHTML = `<strong>Review Edited:</strong> <br>Email: ${reviewData.email}<br>CRN: ${reviewData.crn}<br>Year: ${reviewData.year}<br>Semester: ${reviewData.semester}<br>Testimony: ${reviewData.testimony}<br>Rating: ${reviewData.rating}<br>Difficulty: ${reviewData.difficulty}<br>Time Commitment: ${reviewData.timeCommit} hours/week<br>`;
+                outputDiv.appendChild(dataDiv);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('responseOutput').innerHTML = 'Failed to edit review.';
+            });
+
+            // Clear form fields after submission
+            //document.getElementById('reviewForm').reset();
+        });
+
+        document.getElementById('deleteAllReviews').addEventListener('click', function(event) {
+            event.preventDefault();
+            const deleteAllFormData = {
+                email: document.getElementById('email').value,
+            };
+        
+            // Call your API endpoint with form data
+            fetch('/deleteAllReviews', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(deleteAllFormData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                const outputDiv = document.getElementById('responseOutput');
+                outputDiv.innerHTML = '';
+                console.log('Reviews deleted', data);
+                outputDiv.innerHTML = 'Reviews deleted successfully.';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('responseOutput').innerHTML = 'Failed to delete reviews';
+            });
+
+
+            // Clear form fields after submission
+            //document.getElementById('reviewForm').reset();
+        });
+        
+    </script>
+</body>
+</html>
